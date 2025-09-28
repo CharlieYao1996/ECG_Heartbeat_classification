@@ -1,6 +1,6 @@
 # ECG_Heartbeat_classification
 ECG_Heartbeat_classification.  
-Data from Kaggle, https://www.kaggle.com/datasets/shayanfazeli/heartbeat.  
+Data from Kaggle, https://www.kaggle.com/datasets/shayanfazeli/heartbeat  
 Data Content  
 Arrhythmia Dataset  
 Number of Samples: 109446  
