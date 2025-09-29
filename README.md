@@ -30,4 +30,13 @@ The second model consists of four convolutional layers with up to 256 channels. 
 The third model incorporates residual connections and consists of five residual blocks (i.e., ten layers). Dropout and batch normalization are applied. This model has a larger number of parameters and produces larger feature maps, requiring more GPU memory.
 
 4.**Coupled CNN**
-The fourth model is a coupled CNN consisting of two convolution + pooling pairs, repeated twice, followed by three fully connected layers for output. This design is based on an architecture from the literature, which I re-implemented. It has more parameters than the residual CNN, but its feature maps are smaller.
+The fourth model is a coupled CNN consisting of two convolution + pooling pairs, repeated twice, followed by three fully connected layers for output. This design is based on an architecture from the paper, which I re-implemented. It has more parameters than the residual CNN, but its feature maps are smaller.  
+https://ieeexplore.ieee.org/abstract/document/8952723  
+  
+**Table 1. Models performance comparison**
+
+| Model | parameter | Recall  | Specificity | precision | F1-score |
+| Simple CNN | 52,229 | 0.9811 | 0.9494 | 0.9805 | 0.9807 |
+| Four-layer CNN | 217,925 | 0.9840 | 0.9536 | 0.9835 | 0.9835 |
+| Residual CNN | 1,354,981 | 0.9844 | 0.9518 | 0.9840 | 0.9840 |
+| Coupled CNN | 1,686,725 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |
