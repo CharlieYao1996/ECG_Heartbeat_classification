@@ -42,6 +42,7 @@ In the following tables, (W) denotes the weighted average and (M) denotes the ma
 | Four-layer CNN | 217,925 | 0.9840 | 0.9536 | 0.9835 | 0.9835 | 0.9171 |  
 | Residual CNN | 1,354,981 | 0.9844 | 0.9518 | 0.9840 | 0.9840 | 0.9154 |  
 | Coupled CNN | 1,686,725 | 0.9872 | 0.9630 | 0.9869 | 0.9869  | 0.9290 |  
+
 As Table 1 shows, the results clearly demonstrate a progressive improvement in performance from top to bottom, as reflected in higher Recall, Precision, and F1-scores. Nevertheless, this improvement comes at the cost of an increased number of parameters. Overall, these findings suggest that the earlier models are not complex enough and can be considered underfitting.  
 
 **Table 2. Adam v.s AdamW**
@@ -49,6 +50,7 @@ As Table 1 shows, the results clearly demonstrate a progressive improvement in p
 |----------------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | Adam | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
 | Coupled CNN | AdamW | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
+
 In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW serving as the optimization methods. The differences between the two are minimal, as all evaluation metrics are very close. This suggests that the impact of explicit weight decay introduced by AdamW is limited in this setting, likely because dropout and batch normalization are already employed as regularization techniques within the Coupled CNN.
 
 **Table 3. LrScheduler or not**
@@ -56,6 +58,7 @@ In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW 
 |----------------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | used | 0.9869 | 0.9681 | 0.9866 | 0.9867 | 0.9239 |  
 | Coupled CNN | none | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
+
 As Table 3 shows, 
 
 **Table 4. Class weights**
@@ -65,4 +68,5 @@ As Table 3 shows,
 | Coupled CNN | 0.1 | 0.9129 | 0.9911 | 0.9313 | 0.9218 | 0.9865 | 0.9690 | 0.9863 | 0.986 |  
 | Coupled CNN | 0.5 | 0.9319 | 0.9896 | 0.8486 | 0.8816 | 0.9775 | 0.9704 | 0.9805 | 0.9785 |  
 | Coupled CNN | 1.0 | 0.9437 | 0.9883 | 0.7713 | 0.8266 |  0.9605 | 0.9808 | 0.9749 | 0.9655 |  
+
 As Table 4 shows, 
