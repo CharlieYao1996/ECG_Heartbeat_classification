@@ -36,6 +36,7 @@ https://ieeexplore.ieee.org/abstract/document/8952723
 **Table 1. Models performance comparison**
 
 | Model | parameter | Recall  | Specificity | precision | F1-score |  
+|----------------|------------|--------|-------------|-----------|----------|
 | Simple CNN | 52,229 | 0.9811 | 0.9494 | 0.9805 | 0.9807 |  
 | Four-layer CNN | 217,925 | 0.9840 | 0.9536 | 0.9835 | 0.9835 |  
 | Residual CNN | 1,354,981 | 0.9844 | 0.9518 | 0.9840 | 0.9840 |  
