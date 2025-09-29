@@ -1,5 +1,5 @@
 # ECG_Heartbeat_classification
-ECG_Heartbeat_classification.
+ECG_Heartbeat_classification.  
 All required packages are listed in requirements.txt  
 ## Data
 Data from Kaggle, https://www.kaggle.com/datasets/shayanfazeli/heartbeat  
