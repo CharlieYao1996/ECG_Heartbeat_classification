@@ -44,13 +44,13 @@ https://ieeexplore.ieee.org/abstract/document/8952723
 
 **Table 2. Adam v.s AdamW**
 | Model | optimization | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
-|----------------|------------|--------|-------------|-----------|----------|
+|----------------|------------|--------|-------------|-----------|----------|----------|
 | Coupled CNN | Adam | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
 | Coupled CNN | AdamW | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
 
 **Table 3. LrScheduler or not**
 | Model | LrScheduler | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
-|----------------|------------|--------|-------------|-----------|----------|
+|----------------|------------|--------|-------------|-----------|----------|----------|
 | Coupled CNN | used | 0.9869 | 0.9681 | 0.9866 | 0.9867 | 0.9239 |  
 | Coupled CNN | none | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
 
