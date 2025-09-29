@@ -11,8 +11,8 @@ Data Source: Physionet's MIT-BIH Arrhythmia Dataset
 Classes: ['N': 0, 'S': 1, 'V': 2, 'F': 3, 'Q': 4]  
 
 80% of data(87554) used to train, and 20% of data (21892) used to test.  
-![train_pie](train_pie.png)
-![test_pie](test_pie.png)
+![train_pie](train_pie.png)  
+![test_pie](test_pie.png)  
 As shown in the pie chart, class N accounts for 82.8% of the data, meaning that most samples belong to class N. The other four classes make up only 17.2%, with class F in particular representing just 0.7%. This indicates that the dataset is highly imbalanced.  
 ##Data Preprocessing
 As mentioned earlier, the dataset is highly imbalanced. Therefore, when splitting a portion of the training data for validation, I applied a stratified split to preserve the class distribution.  
