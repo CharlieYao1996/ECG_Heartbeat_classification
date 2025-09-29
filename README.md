@@ -19,6 +19,7 @@ As mentioned earlier, the dataset is highly imbalanced. Therefore, when splittin
 In addition, all data were standardized using z-score normalization.  
 ## Model 
 I use 4 different models to classify ECG data. All models are trained with AdamW (learning rate 1e-3, weight decay 1e-3) for 100 epochs, with early stopping if the validation loss does not improve for 15 consecutive epochs.  
+  
 1.**Simple CNN**
 The first model is a simple CNN with only three layers and up to 128 channels. It does not use dropout or batch normalization. Training is relatively fast, and this model serves as the baseline.
 
