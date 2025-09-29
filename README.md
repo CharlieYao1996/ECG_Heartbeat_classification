@@ -54,7 +54,7 @@ https://ieeexplore.ieee.org/abstract/document/8952723
 | Coupled CNN | used | 0.9869 | 0.9681 | 0.9866 | 0.9867 | 0.9239 |  
 | Coupled CNN | none | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
 
-**Table 4. Class weights **
+**Table 4. Class weights**
 | Model | alpha | Recall(M)  | Specificity(M) | precision(M) | F1-score(M) |  Recall(W)  | Specificity(W) | precision(W) | F1-score(W) |  
 |----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | 0 | 0.9182 | 0.9900 | 0.9412 | 0.9290 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |  
