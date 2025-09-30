@@ -1,5 +1,5 @@
 # ECG_Heartbeat_classification
-ECG_Heartbeat_classification.  
+I applied multiple models to the ECG classification problem to explore their respective performance. Using my best-performing model as a baseline, I conducted several experiments aimed at improving the results. The primary evaluation metric is the weighted average F1 score, which currently reaches 0.9869.  
 All required packages are listed in requirements.txt.  
 ## Data
 Data from Kaggle, https://www.kaggle.com/datasets/shayanfazeli/heartbeat  
