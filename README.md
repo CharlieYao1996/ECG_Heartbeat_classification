@@ -81,5 +81,6 @@ As shown in Table 4, increasing alpha leads to higher Macro Recall but lower Mac
 | Coupled CNN | 0.25 | 0.9285 | 0.9916 | 0.9239 | 0.9259 | 0.9864 | 0.9718 | 0.9864 | 0.9864 |  
 | Coupled CNN | 0.5 | 0.9321 | 0.9914 | 0.9185 | 0.9248 | 0.9862 | 0.9710 | 0.9863 | 0.9862 |  
 | Coupled CNN | 1.0 | 0.9315 | 0.9918 | 0.9025 | 0.9163 | 0.9839 | 0.9750 | 0.9844 | 0.9841 |  
+
 A sampler was applied using class N as the base. A Sampler Ratio of 1 indicates that the other classes are sampled with the same probability as class N, while a Sampler Ratio of 0.1 means their sampling probability is 10% of class N.  
 As shown in Table 5, the results are similar to the class weight experiments: Macro Recall increases, Macro Precision decreases, and the effect becomes more pronounced with higher Sampler Ratio. Overall performance is slightly better than with class weights, as the decline in Macro Precision is smaller, but Macro F1 is not improved, indicating that the effect remains limited.
