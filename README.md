@@ -35,7 +35,7 @@ The third model incorporates residual connections and consists of five residual 
 ## 4.**Coupled CNN**
 The fourth model is a coupled CNN consisting of two convolution + pooling pairs, repeated twice, followed by three fully connected layers for output. This design is based on an architecture from the paper, which I re-implemented. It has more parameters than the residual CNN, but its feature maps are smaller.  
 https://ieeexplore.ieee.org/abstract/document/8952723  
-
+# Experiment
 In the following tables, (W) denotes the weighted average and (M) denotes the macro average. In this work, the weighted average is mainly used as the primary evaluation metric, while the macro average is reported as supplementary information.  
 # Table 1. Models performance comparison
 | Model | parameter | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
