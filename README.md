@@ -53,7 +53,7 @@ As Table 1 shows, the results clearly demonstrate a progressive improvement in p
 | Coupled CNN | Adam | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
 | Coupled CNN | AdamW | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
 
-In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW serving as the optimization methods. The differences between the two are minimal, as all evaluation metrics are very close. This suggests that the impact of explicit weight decay introduced by AdamW is limited in this setting, likely because dropout and batch normalization are already employed as regularization techniques within the Coupled CNN.
+In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW serving as the optimization methods. The differences between the two are minimal, as all evaluation metrics are very close. This suggests that the impact of explicit weight decay introduced by AdamW is limited in this setting, likely because dropout and batch normalization are already employed as regularization techniques within the Coupled CNN.  
 
 # Table 3. LrScheduler or not
 | Model | LrScheduler | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
@@ -73,7 +73,7 @@ As shown in Table 3, we evaluated the LR Scheduler with three different paramete
 | Coupled CNN | 1.0 | 0.9437 | 0.9883 | 0.7713 | 0.8266 |  0.9605 | 0.9808 | 0.9749 | 0.9655 |  
 
 Class weights were applied to address data imbalance, with larger alpha values indicating greater influence on the overall loss.  
-As shown in Table 4, increasing alpha leads to higher Macro Recall but lower Macro Precision. This occurs because many samples from the majority class (class N, ~80% of the data) are misclassified as other classes. The class weights reduce the impact of the majority class on the loss, causing it to be learned poorly. As a result, the weighted average performance also drops significantly.
+As shown in Table 4, increasing alpha leads to higher Macro Recall but lower Macro Precision. This occurs because many samples from the majority class (class N, ~80% of the data) are misclassified as other classes. The class weights reduce the impact of the majority class on the loss, causing it to be learned poorly. As a result, the weighted average performance also drops significantly.  
 
 # Table 5. Comparison of Base vs Adjusted Sampling Strategies
 | Model | ratio | Recall(M)  | Specificity(M) | precision(M) | F1-score(M) |  Recall(W)  | Specificity(W) | precision(W) | F1-score(W) |  
@@ -85,4 +85,12 @@ As shown in Table 4, increasing alpha leads to higher Macro Recall but lower Mac
 | Coupled CNN | 1.0 | 0.9315 | 0.9918 | 0.9025 | 0.9163 | 0.9839 | 0.9750 | 0.9844 | 0.9841 |  
 
 A sampler was applied using class N as the base. A Sampler Ratio of 1 indicates that the other classes are sampled with the same probability as class N, while a Sampler Ratio of 0.1 means their sampling probability is 10% of class N.  
-As shown in Table 5, the results are similar to the class weight experiments: Macro Recall increases, Macro Precision decreases, and the effect becomes more pronounced with higher Sampler Ratio. Overall performance is slightly better than with class weights, as the decline in Macro Precision is smaller, but Macro F1 is not improved, indicating that the effect remains limited.
+As shown in Table 5, the results are similar to the class weight experiments: Macro Recall increases, Macro Precision decreases, and the effect becomes more pronounced with higher Sampler Ratio. Overall performance is slightly better than with class weights, as the decline in Macro Precision is smaller, but Macro F1 is not improved, indicating that the effect remains limited.  
+
+# Table 6. Comparison between Tensorflow and Pytorch
+| Model | frameworks | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
+|----------------|--------|--------|--------|--------|--------|--------|
+| Coupled CNN | PyTorch | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
+| Coupled CNN | TensorFlow | 0.9868 | 0.9618 | 0.9864 | 0.9865 | 0.9254 |  
+
+Here, I switched the framework to TensorFlow. On one hand, this demonstrates that I can work with both frameworks; on the other hand, it allows me to check for any noticeable differences. As expected, the results are very similar. However, since TensorFlow no longer supports Windows after version 2.11, I had to train on CPU, which takes longer. Therefore, all other experiments were primarily conducted using PyTorch.  
