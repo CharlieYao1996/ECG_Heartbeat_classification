@@ -37,7 +37,7 @@ The fourth model is a coupled CNN consisting of two convolution + pooling pairs,
 https://ieeexplore.ieee.org/abstract/document/8952723  
 
 In the following tables, (W) denotes the weighted average and (M) denotes the macro average. In this work, the weighted average is mainly used as the primary evaluation metric, while the macro average is reported as supplementary information.  
-*Table 1. Models performance comparison*
+#Table 1. Models performance comparison
 | Model | parameter | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
 |----------------|--------|--------|--------|--------|--------|--------|
 | Simple CNN | 52,229 | 0.9811 | 0.9494 | 0.9805 | 0.9807 | 0.9012 |  
@@ -47,7 +47,7 @@ In the following tables, (W) denotes the weighted average and (M) denotes the ma
 
 As Table 1 shows, the results clearly demonstrate a progressive improvement in performance from top to bottom, as reflected in higher Recall, Precision, and F1-scores. Nevertheless, this improvement comes at the cost of an increased number of parameters. Overall, these findings suggest that the earlier models are not complex enough and can be considered underfitting.  
 
-*Table 2. Adam v.s AdamW*
+#Table 2. Adam v.s AdamW
 | Model | optimization | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
 |----------------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | Adam | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
@@ -55,7 +55,7 @@ As Table 1 shows, the results clearly demonstrate a progressive improvement in p
 
 In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW serving as the optimization methods. The differences between the two are minimal, as all evaluation metrics are very close. This suggests that the impact of explicit weight decay introduced by AdamW is limited in this setting, likely because dropout and batch normalization are already employed as regularization techniques within the Coupled CNN.
 
-*Table 3. LrScheduler or not*
+#Table 3. LrScheduler or not
 | Model | LrScheduler | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
 |----------------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | none | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
@@ -64,7 +64,7 @@ In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW 
 | Coupled CNN | 0.8 | 0.9870 | 0.9651 | 0.9867 | 0.9867 | 0.9231 |  
 
 As shown in Table 3, we evaluated the LR Scheduler with three different parameter settings against the original model. No significant improvement or degradation was observed, likely because the model had already converged and the learning rate was not a limiting factor. Consequently, all subsequent experiments were conducted without using the LR Scheduler.  
-*Table 4. Class weights*
+#Table 4. Class weights
 | Model | alpha | Recall(M)  | Specificity(M) | precision(M) | F1-score(M) |  Recall(W)  | Specificity(W) | precision(W) | F1-score(W) |  
 |----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | none | 0.9182 | 0.9900 | 0.9412 | 0.9290 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |  
@@ -75,7 +75,7 @@ As shown in Table 3, we evaluated the LR Scheduler with three different paramete
 Class weights were applied to address data imbalance, with larger alpha values indicating greater influence on the overall loss.  
 As shown in Table 4, increasing alpha leads to higher Macro Recall but lower Macro Precision. This occurs because many samples from the majority class (class N, ~80% of the data) are misclassified as other classes. The class weights reduce the impact of the majority class on the loss, causing it to be learned poorly. As a result, the weighted average performance also drops significantly.
 
-*Table 5. Comparison of Base vs Adjusted Sampling Strategies*
+#Table 5. Comparison of Base vs Adjusted Sampling Strategies
 | Model | ratio | Recall(M)  | Specificity(M) | precision(M) | F1-score(M) |  Recall(W)  | Specificity(W) | precision(W) | F1-score(W) |  
 |----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | none | 0.9182 | 0.9900 | 0.9412 | 0.9290 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |  
