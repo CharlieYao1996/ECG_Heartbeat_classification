@@ -56,17 +56,30 @@ In Table 2, the Coupled CNN was used as the baseline model, with Adam and AdamW 
 **Table 3. LrScheduler or not**
 | Model | LrScheduler | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
 |----------------|--------|--------|--------|--------|--------|--------|
-| Coupled CNN | used | 0.9869 | 0.9681 | 0.9866 | 0.9867 | 0.9239 |  
 | Coupled CNN | none | 0.9872 | 0.9630 | 0.9869 | 0.9869 | 0.9201 |  
+| Coupled CNN | 0.2 | 0.9873 | 0.9647 | 0.9870 | 0.9870 | 0.9270 |  
+| Coupled CNN | 0.5 | 0.9869 | 0.9681 | 0.9866 | 0.9867 | 0.9239 |  
+| Coupled CNN | 0.8 | 0.9870 | 0.9651 | 0.9867 | 0.9867 | 0.9231 |  
 
-As Table 3 shows, 
-
+As shown in Table 3, we evaluated the LR Scheduler with three different parameter settings against the original model. No significant improvement or degradation was observed, likely because the model had already converged and the learning rate was not a limiting factor. Consequently, all subsequent experiments were conducted without using the LR Scheduler.  
 **Table 4. Class weights**
 | Model | alpha | Recall(M)  | Specificity(M) | precision(M) | F1-score(M) |  Recall(W)  | Specificity(W) | precision(W) | F1-score(W) |  
 |----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| Coupled CNN | 0 | 0.9182 | 0.9900 | 0.9412 | 0.9290 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |  
+| Coupled CNN | none | 0.9182 | 0.9900 | 0.9412 | 0.9290 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |  
 | Coupled CNN | 0.1 | 0.9129 | 0.9911 | 0.9313 | 0.9218 | 0.9865 | 0.9690 | 0.9863 | 0.986 |  
 | Coupled CNN | 0.5 | 0.9319 | 0.9896 | 0.8486 | 0.8816 | 0.9775 | 0.9704 | 0.9805 | 0.9785 |  
 | Coupled CNN | 1.0 | 0.9437 | 0.9883 | 0.7713 | 0.8266 |  0.9605 | 0.9808 | 0.9749 | 0.9655 |  
 
-As Table 4 shows, 
+Class weights were applied to address data imbalance, with larger alpha values indicating greater influence on the overall loss.  
+As shown in Table 4, increasing alpha leads to higher Macro Recall but lower Macro Precision. This occurs because many samples from the majority class (class N, ~80% of the data) are misclassified as other classes. The class weights reduce the impact of the majority class on the loss, causing it to be learned poorly. As a result, the weighted average performance also drops significantly.
+
+**Table 5. Comparison of Base vs Adjusted Sampling Strategies**
+| Model | ratio | Recall(M)  | Specificity(M) | precision(M) | F1-score(M) |  Recall(W)  | Specificity(W) | precision(W) | F1-score(W) |  
+|----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Coupled CNN | none | 0.9182 | 0.9900 | 0.9412 | 0.9290 | 0.9872 | 0.9630 | 0.9869 | 0.9869 |  
+| Coupled CNN | 0.1 | 0.9255 | 0.9906 | 0.9257 | 0.9252 | 0.9860 | 0.9670 | 0.9859 | 0.9859 |  
+| Coupled CNN | 0.25 | 0.9285 | 0.9916 | 0.9239 | 0.9259 | 0.9864 | 0.9718 | 0.9864 | 0.9864 |  
+| Coupled CNN | 0.5 | 0.9321 | 0.9914 | 0.9185 | 0.9248 | 0.9862 | 0.9710 | 0.9863 | 0.9862 |  
+| Coupled CNN | 1.0 | 0.9315 | 0.9918 | 0.9025 | 0.9163 | 0.9839 | 0.9750 | 0.9844 | 0.9841 |  
+A sampler was applied using class N as the base. A Sampler Ratio of 1 indicates that the other classes are sampled with the same probability as class N, while a Sampler Ratio of 0.1 means their sampling probability is 10% of class N.  
+As shown in Table 5, the results are similar to the class weight experiments: Macro Recall increases, Macro Precision decreases, and the effect becomes more pronounced with higher Sampler Ratio. Overall performance is slightly better than with class weights, as the decline in Macro Precision is smaller, but Macro F1 is not improved, indicating that the effect remains limited.
