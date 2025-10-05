@@ -1,5 +1,5 @@
 # ECG_Heartbeat_classification
-I applied multiple models to the ECG classification problem to explore their respective performance. Using my best-performing model as a baseline, I conducted several experiments aimed at improving the results. The primary evaluation metric is the weighted average F1 score, which currently reaches 0.9869.  
+I applied multiple models to the ECG classification problem to explore their respective performance. Using my best-performing model as a baseline, I conducted several experiments aimed at improving the results. The primary evaluation metric is the weighted average F1 score, which currently reaches 0.9877.  
 All files, except for ECG_couple_CNN_TF, were run using PyTorch.
 To run these files, all required packages are listed in requirements.txt.
 For the environment of ECG_couple_CNN_TF, please refer to requirements_TF.txt.  
