@@ -94,3 +94,18 @@ As shown in Table 5, the results are similar to the class weight experiments: Ma
 | Coupled CNN | TensorFlow | 0.9868 | 0.9618 | 0.9864 | 0.9865 | 0.9254 |  
 
 Here, I switched the framework to TensorFlow. On one hand, this demonstrates that I can work with both frameworks; on the other hand, it allows me to check for any noticeable differences. As expected, the results are very similar. However, since TensorFlow no longer supports Windows after version 2.11, I had to train on CPU, which takes longer. Therefore, all other experiments were primarily conducted using PyTorch.  
+
+# Table 7. Data Augmemtation
+| Model | Gaussian noise | Scalling | time mask | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
+|----------------|--------|--------|--------|--------|--------|--------|
+| Coupled CNN | none | none | none | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
+| Coupled CNN | 0.01 | none | none | 0.9871 | 0.9636 | 0.9868 | 0.9868 | 0.9240 | 
+| Coupled CNN | 0.01 | none | one | 0.9872 | 0.9610 | 0.9869 | 0.9868 | 0.9277 |  
+| Coupled CNN | 0.01 | none | two | 0.9856 | 0.9613 | 0.9852 | 0.9852 | 0.9174 |  
+| Coupled CNN | 0.01 | 0.1 | none | 0.9879 | 0.9660 | 0.9876 | 0.9877 | 0.9271 |  
+| Coupled CNN | 0.01 | 0.1 | one | 0.9869 | 0.9657 | 0.9866 | 0.9867 | 0.9256 |  
+| Coupled CNN | 0.01 | 0.1 | two | 0.9853 | 0.9642 | 0.9851 | 0.9852 | 0.9220 |  
+
+As shown in Table 7, adding Gaussian noise had negligible impact. This suggests that the MIT-BIH dataset itself is relatively clean, and the test data likely contains little noise. Therefore, applying Gaussian noise is not strictly necessary, though it does not harm performance either.  
+Next, for scaling, I applied a small magnitude of scaling, which slightly improved the results, with the weighted F1 reaching 0.9877. This indicates that simulating variations in electrode signal strength enhances model generalizability.  
+As for time masking, masking one segment caused little change in performance, but masking two segments led to a clear drop in all metrics. This shows that excessive masking disrupts the temporal patterns of ECG signals.  
