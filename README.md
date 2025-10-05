@@ -97,7 +97,7 @@ Here, I switched the framework to TensorFlow. On one hand, this demonstrates tha
 
 # Table 7. Data Augmemtation
 | Model | Gaussian noise | Scalling | time mask | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
-|----------------|--------|--------|--------|--------|--------|--------|
+|----------------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | none | none | none | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
 | Coupled CNN | 0.01 | none | none | 0.9871 | 0.9636 | 0.9868 | 0.9868 | 0.9240 | 
 | Coupled CNN | 0.01 | none | one | 0.9872 | 0.9610 | 0.9869 | 0.9868 | 0.9277 |  
