@@ -96,7 +96,7 @@ As shown in Table 5, the results are similar to the class weight experiments: Ma
 Here, I switched the framework to TensorFlow. On one hand, this demonstrates that I can work with both frameworks; on the other hand, it allows me to check for any noticeable differences. As expected, the results are very similar. However, since TensorFlow no longer supports Windows after version 2.11, I had to train on CPU, which takes longer. Therefore, all other experiments were primarily conducted using PyTorch.  
 
 # Table 7. Data Augmemtation
-| Model | Gaussian noise | Scalling | time mask | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
+| Model | Gaussian noise | scalling | time mask | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
 |----------------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Coupled CNN | none | none | none | 0.9868 | 0.9661 | 0.9866 | 0.9865 | 0.9290 |  
 | Coupled CNN | 0.01 | none | none | 0.9871 | 0.9636 | 0.9868 | 0.9868 | 0.9240 | 
