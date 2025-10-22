@@ -40,7 +40,7 @@ In the following tables, (W) denotes the weighted average and (M) denotes the ma
 # Table 1. Models performance comparison
 | Model | parameter | Recall(W)  | Specificity(W) | precision(W) | F1-score(W) | F1-score(M) |  
 |----------------|--------|--------|--------|--------|--------|--------|
-| Simple CNN | 52,229 | 0.9811 | 0.9494 | 0.9805 | 0.9807 | 0.9012 |  
+| Simple CNN | 52,229 | 0.9817 | 0.9464 | 0.9811 | 0.9811 | 0.9006 |  
 | Four-layer CNN | 217,925 | 0.9840 | 0.9536 | 0.9835 | 0.9835 | 0.9171 |  
 | Residual CNN | 1,354,981 | 0.9844 | 0.9518 | 0.9840 | 0.9840 | 0.9154 |  
 | Coupled CNN | 1,686,725 | 0.9872 | 0.9630 | 0.9869 | 0.9869  | 0.9290 |  
